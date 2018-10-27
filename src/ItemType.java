@@ -1,11 +1,16 @@
 /**
- * Michael Carracino
- * Last Updated: 9-29-2018
+ * Michael Carracino Last Updated: 10-27-2018 Pretty standard enum here.
  */
 
 public enum ItemType {
-  Audio, AU,
-  Visual, VI,
-  AudioMobile, AM,
-  VisualMobile, VM
+  AUDIO("AU"),
+  VISUAL("VI"),
+  AUDIOMOBILE("AM"),
+  VISUALMOBILE("VM");
+  //This next block was reccomended to me online, I am not sure exactly why I need it
+  private final String representation;
+
+  ItemType(String representation) {
+    this.representation = representation;
+  }
 }

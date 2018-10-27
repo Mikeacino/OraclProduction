@@ -1,51 +1,50 @@
-/**
+/*
  * Michael Carracino
  * Last Updated: 9-29-2018
- * Implements the item Interface and does some
+ * Implements the item Interface and does some stuff
  */
 
 import java.util.Date;
 
-public abstract class Product implements Item{
-  int serialNumber;
-  String MANUFACTURER = Item.MANUFACTURER; //This line is because MANUFACTURER is otherwise null
-  Date manufacturedOn;
-  String name;
+public abstract class Product implements Item, Comparable {
 
+  private int serialNumber;
+  private String MANUFACTURER = Item.MANUFACTURER;
+  private Date manufacturedOn;
+  private String name;
+  private int currentProductionNumber = 1;
 
-  static int currentProductionNumber;
-
-  public Product (String name){
+  public Product(String name) {
     this.name = name;
-    serialNumber = currentProductionNumber++;   //++ is post fix, There is a bug here.
-    manufacturedOn = new Date();
-
-  }
-
-  public void setProductionNumber(int x){
     serialNumber = currentProductionNumber;
+    currentProductionNumber++;
+    manufacturedOn = new Date();
   }
 
-  public void setName(String y){
+  public void setProductionNumber(int x) {
+    this.currentProductionNumber = x;
+  }
+
+  public void setName(String y) {
     name = y;
   }
 
-  public String getName(){
-    return name;
+  public String getName() {
+    return this.name;
   }
 
-  public Date getManufacturerDate(){
-    return manufacturedOn;    //Bug here, but I was told to do this in this manner
+  public Date getManufacturerDate() {
+    return this.manufacturedOn;
   }
 
-  public int getSerialNumber(){
-    return serialNumber;
+  public int getSerialNumber() {
+    return this.serialNumber;
   }
 
-  public String toString(){
-    return "Manufacturer  : "+ MANUFACTURER +"\n"
-         + "Serial Number : "+ serialNumber +"\n"
-         + "Date          : "+ manufacturedOn +"\n"
-         + "Name          : "+ name;
+  public String toString() {
+    return "\nManufacturer : " + MANUFACTURER + "\n"
+        + "Serial Number : " + serialNumber + "\n"
+        + "Date : " + manufacturedOn + "\n"
+        + "Name : " + name;
   }
 }
