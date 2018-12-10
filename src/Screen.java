@@ -32,7 +32,7 @@ public class Screen implements ScreenSpec, Comparable {
   }
 
   public static void main(String args[]) {
-    Screen test5 = new Screen("High", 50, 2);
+    //Screen test5 = new Screen("High", 50, 2);
   }
 
   @Override
